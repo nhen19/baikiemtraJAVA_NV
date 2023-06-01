@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout}">
+<!--<head th:replace="layout :: head">-->
+<!--    <title>List Book</title>-->
+<!--</head>-->
+<body>
+<!--<block th:replace="layout :: header"></block>-->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" th:fragment="content">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="">
+                    <h1 class="text-white mb-4">Đăng ký</h1>
+                    <form th:action="@{/register}" th:object=${user} method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" required class="form-control bg-white" id="name" th:field="*{name}" placeholder="name">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+                                    <label for="name">Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text"  required class="form-control bg-white" id="email" th:field="*{email}" placeholder="email">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+                                    <label for="email">email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text"  required class="form-control bg-white" id="username" th:field="*{username}" placeholder="username">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+                                    <label for="username">username</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" required class="form-control bg-white" id="password" placeholder="password" th:field="*{password}">
+                                    <span class="text-danger"  th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+                                    <label for="password">password</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Sign up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<block th:replace="layout :: footer"></block>-->
+
+</body>
+</html>

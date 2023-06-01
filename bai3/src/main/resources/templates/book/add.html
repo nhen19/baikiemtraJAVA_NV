@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout}">
+<!--<head th:replace="layout :: head">-->
+<!--    <title>List Book</title>-->
+<!--</head>-->
+<body>
+<!--<block th:replace="layout :: header"></block>-->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" th:fragment="content">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="">
+                    <h1 class="text-white mb-4">Create new book</h1>
+                    <form th:action="@{/add}" th:object="${book}" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white" id="Ma_NV" placeholder="Ma_NV" th:field="*{Ma_NV}">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('Ma_NV')}" th:errors="*{Ma_NV}"></span>
+
+                                    <label for="Ma_NV">Mã nhân viên</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white" id="Ten_NV" placeholder="Ten_NV" th:field="*{Ten_NV}">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('Ten_NV')}" th:errors="*{Ten_NV}"></span>
+
+                                    <label for="Ten_NV">Tên nhân viên</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white" id="Phai" placeholder="Phai" th:field="*{Phai}">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('Phai')}" th:errors="*{Phai}"></span>
+
+                                    <label for="Phai">Phái</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white" id="Noi_Sinh" placeholder="Noi_Sinh" th:field="*{Noi_Sinh}">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('Noi_Sinh')}" th:errors="*{Noi_Sinh}"></span>
+
+                                    <label for="Noi_Sinh">Mã nhân viên</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white" id="Luong" placeholder="Luong" th:field="*{Luong}">
+                                    <span class="text-danger" th:if="${#fields.hasErrors('Luong')}" th:errors="*{Luong}"></span>
+
+                                    <label for="Luong">Mã nhân viên</label>
+                                </div>
+                            </div>
+<!--                            <div class="col-md-6">-->
+<!--                                <div class="form-floating">-->
+<!--                                    <input type="text" class="form-control bg-white" id="author" placeholder="Author" th:field="*{author}">-->
+<!--                                    <span class="text-danger" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>-->
+
+<!--                                    <label for="author">Author</label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                           
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white" id="phongban" th:field="*{phongban.Ma_Phong}">
+                                        <option value="">--Select phongban--</option>
+                                        <option th:each="phongban: ${categories}" th:value="${phongban.Ma_Phong}"
+                                        th:text="${phongban.Ten_Phong}"></option>
+                                    </select>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('phongban')}" th:errors="*{phongban}"></span>
+                                    <label for="phongban">phongban</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<block th:replace="layout :: footer"></block>-->
+
+</body>
+</html>
